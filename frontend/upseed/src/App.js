@@ -8,6 +8,7 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import UserProfile from './components/UserProfile';
 import Navbar from './/Navbar';
+import PostCard from './PostCard';
 
 function App() {
   return (
