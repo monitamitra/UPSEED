@@ -14,9 +14,7 @@ function App() {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/Post" element = {<PostList/>}></Route>
       </Routes>
-
-    
-      
+   
   );
 }
 
