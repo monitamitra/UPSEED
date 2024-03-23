@@ -9,19 +9,18 @@ import SignupPage from './components/SignupPage';
 import UserProfile from './components/UserProfile';
 import Navbar from './/Navbar';
 import PostCard from './PostCard';
+import SingularPostPage from './singularPost';
 
 function App() {
   return (
     <div>
        <Navbar />
     <Routes>
-      
-       
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/" element = {<PostList/>} />
-        <Route path="/singlePost" element = {<singularPost></singularPost>} />
+        <Route path="/users/:userId/posts/:postId" element = {<SingularPostPage />} />
         
       </Routes>
     </div>

@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import PostCard from './PostCard';
 
 
-function SingularPostPage({idea, ideaPic}) {
+function SingularPostPage() {
+    console.log("HERE!");
     const likesString = localStorage.getItem("postLikes");
     const numberLikes = JSON.parse(likesString);
     const moneyCollectedString = localStorage.getItem("moneyCollected");
@@ -17,8 +18,8 @@ function SingularPostPage({idea, ideaPic}) {
     const comments = JSON.parse(commentsString);
     const currentUserString = localStorage.getItem("user");
     const currentUser = JSON.parse(currentUserString);
-    const postIdString = localStorage.getItem(postId);
-    const postId = JSON.parse(postIDString);
+    const postIdString = localStorage.getItem("postId");
+    const postID = JSON.parse(postIdString);
 
     
     const [money, setMoney] = useState(0);
@@ -28,7 +29,7 @@ function SingularPostPage({idea, ideaPic}) {
     const increaseLikes = async (postId) => {
         numberLikes++;
         try{
-            const response = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postId}`,{
+            const response = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
                 method: "PUT",
                 headers:{
                     'Content-Type': 'application/json',
@@ -51,7 +52,7 @@ function SingularPostPage({idea, ideaPic}) {
         const increaseMoney = async (postId) => {
             numbermoneyCollected += money;
             try{
-                const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postId}`,{
+                const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
                     method: "PUT",
                     headers:{
                         'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ function SingularPostPage({idea, ideaPic}) {
                comments.push([commentText]);
 
                 try{
-                    const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postId}`,{
+                    const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
                         method: "PUT",
                         headers:{
                             'Content-Type': 'application/json',
@@ -99,7 +100,7 @@ function SingularPostPage({idea, ideaPic}) {
                 const deletePost = async (postId) => {
             
                      try{
-                         const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/deletePost/:${postId}`,{
+                         const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/deletePost/:${postID}`,{
                              method: "DELETE",
                              headers:{
                                  'Content-Type': 'application/json',
@@ -125,7 +126,7 @@ function SingularPostPage({idea, ideaPic}) {
   return (
     <div>
       {/* Render the details of the singular post */}
-      <PostCard idea ={idea} ideaPic={ideaPic} />
+      <PostCard />
         <button onClick = {()=> increaseLikes(PostCard.id)}>Like</button>
         <input  onChange = {(e)=>{setMoney(e.target.value)}}> input money amount</input>
         <button onClick = {()=> increaseMoney(PostCard.id)}>add</button>

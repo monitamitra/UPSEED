@@ -4,15 +4,16 @@ import PostCard from '../PostCard';
 
 function UserProfile() {
 
-    const currentUser = localStorage.getItem("user");
+    const currentUserString = localStorage.getItem("user");
+    const currentUser = JSON.parse(currentUserString);
 
-    console.log(currentUser);
+    console.log(currentUser.displayName);
 
     const [posts, setPosts] = useState([]);
 
     const getPosts =  () => {
     
-        const response = fetch('http://localhost:5555/"/users/:id/posts"')
+        const response = fetch(`http://localhost:5555/users/${currentUser._id}/posts`)
         .then(response => response.json())
         .then(data => setPosts(data))
         .catch(error => console.log("error fetching data"));
