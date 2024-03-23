@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Feed() {
   // Assuming posts is an array of post objects
-  const posts = [...];
+//   const posts = [...];
 
   return (
     <div>
