@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import { useAuth } from '../context/UserAuthContext';
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useAuth();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = fetch('/createUser', {
+            const response = await fetch('http://localhost:5555/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({username: username, password: password}),
             });
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem('user', data); // Store the token
+                localStorage.setItem('user', JSON.stringify(data)); // Store the token
                 navigate('/profile'); // Redirect the user to their profile page
             } else {
                 throw new Error('Failed to sign up.');

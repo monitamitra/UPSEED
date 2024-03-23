@@ -73,6 +73,20 @@ app.put("/users/:id/update", async (request, response) => {
     }
 });
 
+app.post("/login", async (request, response) => {
+    const { username, password } = request.body;
+  try {
+    const user = await User.findOne({ username, password });
+    if (!user) {
+      return response.status(400).json({ message: 'Invalid credentials' });
+    }
+    // If the user is found, respond with a success message
+    return response.status(201).send(user);
+  } catch (error) {
+    console.log("error!");
+  }
+})
+
 // route for deleting a user
 app.delete("/users/:id/delete", async (request, response) => {
     try {

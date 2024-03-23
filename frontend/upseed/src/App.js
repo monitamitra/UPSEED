@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
 import './App.css';
+import React from 'react';
 import PostList from './PostList';
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       import UserProfile from './components/UserProfile';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+import UserProfile from './components/UserProfile';
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/Post" element = {<PostList/>}></Route>
-        <Route path="/Navbar" element = {<Navbar/>}></Route>
+        <Route path="/" element = {<PostList/>}></Route>
+        {/* <Route path="/Navbar" element = {<Navbar/>}></Route> */}
       </Routes>
    
   );

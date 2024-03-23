@@ -24,15 +24,15 @@ function SignupPage() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = fetch('/createUser', {
+            const response = await fetch('http://localhost:5555/createUser', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem('user', data); // Store the token
-                navigate('/profile'); // Redirect the user to their profile page
+                localStorage.setItem('user', JSON.stringify(data)); 
+                navigate('/profile'); 
             } else {
                 throw new Error('Failed to sign up.');
             }

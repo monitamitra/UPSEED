@@ -1,11 +1,9 @@
 import React from 'react';
-import { useAuth } from '../context/UserAuthContext';
 
 function UserProfile() {
-    const { currentUser } = useAuth();
 
-    if (!currentUser) return <div>Loading...</div>;
-
+    const currentUser = localStorage.getItem("user");
+    console.log(currentUser);
     return (
         <div>
             <h2>User Profile</h2>
