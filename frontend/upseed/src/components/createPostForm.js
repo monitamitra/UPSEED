@@ -12,7 +12,7 @@ function CreatePostForm() {
         const postData = { numLikes, moneyCollected, idea, ideaPic, comments };
 
         try {
-            const response = await fetch('http://localhost:5555/posts', {
+            const response = await fetch('http://localhost:5555/"/users/:id/createPost"', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,7 +26,6 @@ function CreatePostForm() {
 
             const data = await response.json();
             console.log(data);
-            // Handle success response, maybe clear form or show a message
         } catch (error) {
             console.error("Error creating post:", error);
             // Handle error
@@ -38,8 +37,8 @@ function CreatePostForm() {
             <input type="text" value={idea} onChange={(e) => setIdea(e.target.value)} required />
             <input type="text" value={ideaPic} onChange={(e) => setIdeaPic(e.target.value)} required />
             <input type="number" value={moneyCollected} onChange={(e) => setMoneyCollected(parseFloat(e.target.value))} required />
-            {/* Other fields */}
-            <button type="submit">Submit Post</button>
+            <input type="text" value={ideaPic} onChange={(e) => setIdeaPic(e.target.value)}></input>
+            <button type="submit">Create Post</button>
         </form>
     );
 }
