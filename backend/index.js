@@ -29,7 +29,7 @@ app.post("/createUser", async (request, response) => {
         }
         const user = await User.create(newUser);
         return response.status(201).send(user);
-    } catch (error) {
+    } catch (error) { 
         console.log(error.message);
         response.status(500).send({message: error.message});
     }
