@@ -1,0 +1,24 @@
+/* Container for each post */
+.post-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    
+  }
+  
+  /* Style for each post */
+  .post {
+    margin: 10px; /* Add margin around each post */
+    text-align: center; /* Center the content within each post */
+  }
+  
+  /* Style for the image */
+  .post img {
+    width: 200px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Style for the like numbers */
+  .post h3 {
+    margin-top: 5px; /* Add some space between the image and like number */
+  }

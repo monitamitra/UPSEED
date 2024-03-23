@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import PostCard from "./PostCard";
+
 //import styles from "../styles.css";
 
 
@@ -23,7 +24,7 @@ export default function PostList() {
   return (
     <div>
       <title>UpSeed's SproutHub</title>
-      <h1>SproutHub</h1>
+      
       <div>
         {pictures.map((picture) => (
           <PostCard key={picture.id} Post={picture} />

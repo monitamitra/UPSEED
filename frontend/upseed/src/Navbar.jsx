@@ -12,12 +12,18 @@ const Navbar = () => {
             </li>
         <li className="nav-item">
           <Link to="/" className="nav-link">
-           SproutHub
+          SPROUTHUB
           </Link>
         </li>
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
-            Profile
+            LOGIN
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/login" className="nav-link">
+            LOGIN
           </Link>
         </li>
       </ul>
