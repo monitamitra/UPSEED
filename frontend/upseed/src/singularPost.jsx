@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PostCard from './PostCard';
 import {useNavigate} from "react-router-dom";
+import './singularPost.css';
 
 
 function SingularPostPage() { 
@@ -14,7 +15,7 @@ function SingularPostPage() {
     const navigate = useNavigate();
     
     const [money, setMoney] = useState(0);
-    const[commentText, setCommentText] = useState(0);
+    const[commentText, setCommentText] = useState("");
     const [likes, setLikes] = useState(0);
     const [post, setPost] = useState({});
 
@@ -107,15 +108,20 @@ function SingularPostPage() {
 
   return (
     <div>
+        <div className = "post">
       <PostCard Post={post}/>
-        <button onClick = {()=> increaseLikes()}>Like</button>
+      </div>
+        
+        <button className = "like" onClick = {()=> increaseLikes()}>Like</button>
         <input  value={money} onChange = {(e)=>{setMoney(e.target.value)}} />
-        <h1>{post.moneyCollected}</h1>
+        <h1 className={"header"}>{post.moneyCollected}</h1>
         <button onClick = {()=> increaseMoney(PostCard.id)}>add</button>
         <input value={commentText} onChange = {(e)=>{setCommentText(e.target.value)}} />
-        <button onClick = {()=>addComment(PostCard.id)}>Submit</button>
+        <button  className = "add" onClick = {()=>addComment(PostCard.id)}>Submit</button>
         {post.comments && post.comments.map((comment, index) => (
     <p key={index}>{comment}</p>
+    
+
   ))}
     </div>
   );
