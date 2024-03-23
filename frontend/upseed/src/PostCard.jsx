@@ -8,7 +8,9 @@ const PostCard = ({ Post }) => {
       </div>
      
       <div>
+        <Link to= {`${Post_.id}`}>
         <img src={Post.ideaPic}></img>
+        </Link>
       </div>
 
     </div>

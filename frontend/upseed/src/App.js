@@ -19,7 +19,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profile" element={<UserProfile />} />
-        <Route path="/" element = {<PostList/>}></Route>
+        <Route path="/" element = {<PostList/>} />
+        <Route path="/singlePost" element = {<singularPost></singularPost>} />
         
       </Routes>
     </div>
