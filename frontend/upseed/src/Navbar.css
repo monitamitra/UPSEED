@@ -1,0 +1,33 @@
+.navbar {
+    background-color: #a4ac86; /* Background color */
+    color: #fff; /* Text color */
+   /* padding: 1rem; /* Padding around navbar */
+  }
+  
+  /* Navbar logo */
+  .logo {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically */
+    margin-right: auto; /* Push logo to the left */
+  }
+  
+  .logo img {
+    width: 170px; /* Adjust width of logo image */
+    height: auto; /* Maintain aspect ratio */
+    padding-left: 100px;
+    margin-right: 0.5rem; /* Add spacing between logo and text */
+  }
+  
+  /* Navbar list */
+  .navbar-nav {
+    display: flex; /* Use flexbox layout */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-grow: 1; /* Allow list to grow and occupy remaining space */
+  }
+  .nav-item {
+    margin-right: 1rem; /* Add spacing between list items */
+  }

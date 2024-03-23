@@ -7,16 +7,22 @@ import PostList from './PostList';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import UserProfile from './components/UserProfile';
+import Navbar from './/Navbar';
 
 function App() {
   return (
+    <div>
+       <Navbar />
     <Routes>
+      
+       
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/" element = {<PostList/>}></Route>
-        {/* <Route path="/Navbar" element = {<Navbar/>}></Route> */}
+        
       </Routes>
+    </div>
    
   );
 }
