@@ -134,7 +134,6 @@ app.post("/users/:id/createPost", async (request, response) => {
 app.get("/users/:Userid/posts/:Postid", async (request, response) => {
     try {
         const { Postid } = request.params;
-
         const post = await Post.findById(Postid);
         return response.status(200).json(post);
     } catch (error) {

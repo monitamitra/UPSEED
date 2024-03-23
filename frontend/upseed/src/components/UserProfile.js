@@ -33,7 +33,7 @@ function UserProfile() {
             <p>Startup Description: {currentUser.startupDescription}</p>
             {currentUser.profilePic && <img src={currentUser.profilePic} alt="Profile" />}
             <div>
-                <CreatePostForm></CreatePostForm>
+                <CreatePostForm onPostCreated={getPosts}></CreatePostForm>
             </div>
             <div>
                 {posts.map((post) => (

@@ -1,138 +1,122 @@
 // SingularPostPage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PostCard from './PostCard';
+import {useNavigate} from "react-router-dom";
 
 
-function SingularPostPage() {
-    console.log("HERE!");
-    const likesString = localStorage.getItem("postLikes");
-    const numberLikes = JSON.parse(likesString);
-    const moneyCollectedString = localStorage.getItem("moneyCollected");
-    const numbermoneyCollected = JSON.parse(moneyCollectedString);
-    const ideaString = localStorage.getItem("postIdea");
-    const ideaParsed = JSON.parse(ideaString);
-    const ideaPicString = localStorage.getItem("ideaPic");
-    const ideaPicParsed = JSON.parse(ideaPicString);
-    const commentsString = localStorage.getItem("comments");
-    const comments = JSON.parse(commentsString);
-    const currentUserString = localStorage.getItem("user");
-    const currentUser = JSON.parse(currentUserString);
-    const postIdString = localStorage.getItem("postId");
-    const postID = JSON.parse(postIdString);
+function SingularPostPage() { 
+    let currentUserString = localStorage.getItem("user");
+    let currentUser = JSON.parse(currentUserString);
+    let postIdString = localStorage.getItem("postId");
+    let postID = JSON.parse(postIdString);
 
+    const navigate = useNavigate();
     
     const [money, setMoney] = useState(0);
     const[commentText, setCommentText] = useState(0);
-    
+    const [likes, setLikes] = useState(0);
+    const [post, setPost] = useState({});
 
     const increaseLikes = async (postId) => {
-        numberLikes++;
+        let likes = post.numLikes;
+        likes++;
         try{
-            const response = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
+            await fetch(`http://localhost:5555/users/${currentUser._id}/editPost/${postID}`,{
                 method: "PUT",
                 headers:{
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                        "numLikes": numberLikes, 
-                        "moneyCollected": numbermoneyCollected,
-                        "idea": ideaParsed,
-                        "ideaPic": ideaPicParsed,
-                        "comments": comments
-    
+                        "numLikes": likes, 
+                        "moneyCollected": post.moneyCollected,
+                        "idea": post.idea,
+                        "ideaPic": post.ideaPic,
+                        "comments": post.comments
                     })
-            });
+            })
            
         } catch{
             console.error("Error!!!");
         }
     }
 
+
         const increaseMoney = async (postId) => {
-            numbermoneyCollected += money;
+            let newMoney =  Number(post.moneyCollected) + Number(money);
             try{
-                const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
+                await fetch(`http://localhost:5555/users/${currentUser._id}/editPost/${postID}`,{
                     method: "PUT",
                     headers:{
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                            "numLikes": numberLikes, 
-                            "moneyCollected": numbermoneyCollected,
-                            "idea": ideaParsed,
-                            "ideaPic": ideaPicParsed,
-                            "comments": comments
+                            "numLikes": post.numLikes, 
+                            "moneyCollected": newMoney,
+                            "idea": post.idea,
+                            "ideaPic": post.ideaPic,
+                            "comments": post.comments
         
                         })
                 });
-               
+
+                fetch(`http://localhost:5555/users/${currentUser._id}/posts/${postID}`)
+                .then(response => response.json())
+                .then(data => setPost(data))
+                .catch((error) => console.log(error));
             } catch{
                 console.error("Error!!!");
             }
         }
 
             const addComment = async (postId) => {
-               comments.push([commentText]);
-
+                let comments = [...post.comments, commentText];
                 try{
-                    const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/editPost/:${postID}`,{
+                    await fetch(`http://localhost:5555/users/${currentUser._id}/editPost/${postID}`,{
                         method: "PUT",
                         headers:{
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
-                                "numLikes": numberLikes, 
-                                "moneyCollected": numbermoneyCollected,
-                                "idea": ideaParsed,
-                                "ideaPic": ideaPicParsed,
+                                "numLikes": post.numLikes, 
+                                "moneyCollected": post.moneyCollected,
+                                "idea": post.idea,
+                                "ideaPic": post.ideaPic,
                                 "comments": comments
             
                             })
                     });
+
+                    fetch(`http://localhost:5555/users/${currentUser._id}/posts/${postID}`)
+                    .then(response => response.json())
+                    .then(data => setPost(data))
+                    .catch((error) => console.log(error));
                    
                 } catch{
                     console.error("Error!!!");
                 }
             }
 
-
-                const deletePost = async (postId) => {
-            
-                     try{
-                         const respone = await fetch(`http://localhost:5555/users/:${currentUser._id}/deletePost/:${postID}`,{
-                             method: "DELETE",
-                             headers:{
-                                 'Content-Type': 'application/json',
-                             },
-                             body: JSON.stringify({
-                                     "numLikes": numberLikes, 
-                                     "moneyCollected": numbermoneyCollected,
-                                     "idea": ideaParsed,
-                                     "ideaPic": ideaPicParsed,
-                                     "comments": comments
-                 
-                                 })
-                         });
-                        
-                     } catch{
-                         console.error("Error!!!");
-                     }
-                }
-    
-
-      
+            useEffect(() => {
+                fetch(`http://localhost:5555/users/${currentUser._id}/posts/${postID}`)
+                .then(response => response.json())
+                .then(data => setPost(data))
+                .catch((error) => console.log(error)) 
+        }, [increaseLikes, increaseMoney])
+  
 
   return (
     <div>
-      {/* Render the details of the singular post */}
-      <PostCard />
-        <button onClick = {()=> increaseLikes(PostCard.id)}>Like</button>
-        <input  onChange = {(e)=>{setMoney(e.target.value)}}> input money amount</input>
+      <PostCard Post={post}/>
+        <button onClick = {()=> increaseLikes()}>Like</button>
+        <input  value={money} onChange = {(e)=>{setMoney(e.target.value)}} />
+        <h1>{post.moneyCollected}</h1>
         <button onClick = {()=> increaseMoney(PostCard.id)}>add</button>
-        <input onChange = {(e)=>{setCommentText(e.target.value)}}>Add a comment...</input>
+        <input value={commentText} onChange = {(e)=>{setCommentText(e.target.value)}} />
         <button onClick = {()=>addComment(PostCard.id)}>Submit</button>
-        <button onClick = {()=> deletePost(PostCard.id)}>Delete</button>
+        {post.comments && post.comments.map((comment, index) => (
+    <p key={index}>{comment}</p>
+  ))}
     </div>
   );
 }
