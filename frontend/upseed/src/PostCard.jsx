@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const PostCard = ({ Post }) => {
-  console.log(Post);
     const currentUserString = localStorage.getItem("user");
     const currentUser = JSON.parse(currentUserString);
     const navigate = useNavigate();
