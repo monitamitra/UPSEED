@@ -13,6 +13,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/Post" element = {<PostList/>}></Route>
+        <Route path="/Navbar" element = {<Navbar/>}></Route>
       </Routes>
    
   );
