@@ -1,37 +1,35 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/Head";
-import Image from "next/image";
-import axios from "axios";
-import styles from "../styles.css";
+// import axios from "axios";
+import PostCard from "./PostCard";
+//import styles from "../styles.css";
+
 
 export default function PostList() {
-  const [picture, setPicture] = useState([]);
+  const [pictures, setPictures] = useState([]);
 
-  const getPicture = async () => {
-    const response = await axios.get();
-    const data = response.data;
-    console.log(data);
-    setPicture(data);
+  const getPictures =  () => {
+  
+      const response = fetch('http://localhost:5555/posts')
+      .then(response => response.json())
+      .then(data => setPictures(data))
+      .catch(error => console.log("error fetching data"));
+
   };
 
   useEffect(() => {
-    getPicture();
+    getPictures();
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>UpSeed's SproutHub</title> //homepage name
-      </Head>
-
-      <h1 className={styles.homepage}>SproutHub</h1>
-
-      <div className={styles.container}>
-        {picture.map((picture) => (
-          <PostCard key={picture.id} picture={picture} />
+    <div>
+      <title>UpSeed's SproutHub</title>
+      <h1>SproutHub</h1>
+      <div>
+        {pictures.map((picture) => (
+          <PostCard key={picture.id} Post={picture} />
         ))}
       </div>
-      <main className={styles.main}></main>
+      <main></main>
     </div>
   );
 }

@@ -1,17 +1,16 @@
 import React from "react";
 
-const PostCard = ({ picture: { title, description, image } }) => {
+const PostCard = ({ Post }) => {
   return (
-    <div className="Startup Post">
+    <div >
       <div>
-        <h2>{title}</h2>
+        <h2>{Post.idea}</h2>
       </div>
+     
       <div>
-        <p>{description}</p>
+        <img src={Post.ideaPic}></img>
       </div>
-      <div>
-        <img src={image} alt={title} />
-      </div>
+
     </div>
   );
 }
