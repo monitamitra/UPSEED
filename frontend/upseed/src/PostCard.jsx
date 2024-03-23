@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import './PostCard.css';
 
 const PostCard = ({ Post }) => {
     const currentUserString = localStorage.getItem("user");
@@ -19,7 +20,7 @@ const PostCard = ({ Post }) => {
   return (
     <div >
       <div>
-        <h2>{Post.numLikes}</h2>
+        <h3>{Post.numLikes}</h3>
       </div>
      
       <div>
