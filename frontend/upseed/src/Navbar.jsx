@@ -17,13 +17,19 @@ const Navbar = () => {
         </li>
         <li className="nav-item">
           <Link to="/profile" className="nav-link">
-            LOGIN
+            PROFILE
           </Link>
         </li>
 
         <li className="nav-item">
           <Link to="/login" className="nav-link">
             LOGIN
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/login" className="nav-link">
+            SIGNUP
           </Link>
         </li>
       </ul>

@@ -9,25 +9,18 @@ const PostCard = ({ Post }) => {
     const navigate = useNavigate();
 
     const handleClick = (e) => {
-        localStorage.setItem("postLikes", JSON.stringify(Post.numLikes));
-        localStorage.setItem("moneyCollected", JSON.stringify(Post.moneyCollected));
-        localStorage.setItem("postIdea", JSON.stringify(Post.idea));
-        localStorage.setItem("ideaPic", JSON.stringify(Post.ideaPic));
-        localStorage.setItem("comments", JSON.stringify(Post.comments));
         localStorage.setItem("postId", JSON.stringify(Post._id));
         navigate(`/users/${currentUser._id}/posts/${Post._id}`)
     }
+
   return (
-    <div >
-      <div>
-        <h3>{Post.numLikes}</h3>
-      </div>
+    
      
-      <div>
-        <div onClick={handleClick}>
-        <img src={Post.ideaPic}></img>
+     <div onClick={() => handleClick()} className = "gallery">
+        <div >
+        <img className = "picturePost" src={Post.ideaPic}></img>
         </div>
-      </div>
+
 
     </div>
   );

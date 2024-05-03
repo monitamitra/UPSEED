@@ -1,24 +1,65 @@
-/* Container for each post */
-.post-container {
-    display: flex; /* Use flexbox layout */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    
-  }
+.top-images img {
   
-  /* Style for each post */
-  .post {
-    margin: 10px; /* Add margin around each post */
-    text-align: center; /* Center the content within each post */
-  }
+  width: 350px;
+  height: 450px;
+  margin: 10px;
+  transition: filter 0.3s ease; 
+  transition: transform 0.3s ease;
+}
+
+.top-images h4{
+  font-weight: 4;
+}
+
+.other-images h5 {
+  font-weight: 4;
+}
+
+.top-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:30px;
+  margin-top:20px;
+
+}
+
+
+
+
+.top-images img:hover {
+  filter: grayscale(70%); /* Apply the grayscale effect on hover */
+  transform: translateY(-10px);
+  cursor:pointer;
+}
+
+
+.other-images img{
+ width:250px;
+ height: 250px;
+ margin: 5px;
+ transition: transform 0.3s ease;
+}
+
+.other-images img:hover{
+  filter: grayscale(70%); 
+  transform: translateY(-10px);/* Apply the grayscale effect on hover */
+  cursor:pointer;
+
+}
+
+.other-images {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+  margin:30px;
   
-  /* Style for the image */
-  .post img {
-    width: 200px; /* Set the width of the image */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  /* Style for the like numbers */
-  .post h3 {
-    margin-top: 5px; /* Add some space between the image and like number */
-  }
+ 
+
+}
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+/* createPostForm.css */
+
+/* Style for the form */
+.form-container {
+    width: 80%; /* Adjust the width of the form container */
+  }
+  
+  /* Style for the form header */
+  .form-header {
+    font-size: 20px; /* Set the font size of the header */
+    margin-bottom: 10px; /* Add some spacing below the header */
+  }
+  
+  /* Style for each form group */
+  .form-pic{
+    width: 200px; /* Set the width of the input fields */
+    padding: 8px; /* Add padding to the input fields */
+    font-size: 14px; /* Set the font size of the input fields */
+    border: 1px solid #ccc; /* Add border to the input fields */
+    border-radius: 4px; /* Add border radius to the input fields */
+    box-sizing: border-box; /* Include padding and border in the input width */
+  }
+  
+  /* Style for the labels */
+  .form-label {
+    /*font-size: 15px; /* Set the font size of the labels */
+    color: #000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 10px;
+    /*
+        color: #000;
+      font-weight: 700;
+      font-family: "Unna", serif;
+      margin-bottom: 10px;
+    */
+  }
+  
+  /* Style for the input fields */
+  .form-input{
+    width: 100%; /* Set the width of the input fields */
+    height: 100px;
+    padding: 8px; /* Add padding to the input fields */
+    font-size: 14px; /* Set the font size of the input fields */
+    border: 1px solid #ccc; /* Add border to the input fields */
+    border-radius: 4px; /* Add border radius to the input fields */
+    box-sizing: border-box; /* Include padding and border in the input width */
+    line-height: 1.5;
+  }
+  
+  /* Style for the submit button */
+  .form-submit {
+    background-color: #a4ac86; /* Set the background color of the button */
+    color: #0b090a; /* Set the text color of the button */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 13px; /* Set the font size of the button */
+    border: none; /* Remove border from the button */
+    border-radius: 4px; /* Add border radius to the button */
+    cursor: pointer; /* Add cursor pointer to the button */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  
+    /*
+    border-radius: 0px;
+      padding: 10px 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #fff;
+      transition: 350ms;
+      letter-spacing: 1px;
+      font-size: 13px;
+      border: 1px solid transparent;
+    */
+  }
+  
+  /* Style for the submit button on hover */
+  .form-submit:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
