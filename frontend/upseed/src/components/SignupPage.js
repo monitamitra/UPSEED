@@ -1,6 +1,7 @@
 // src/components/SignupPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./SignupPage.css";
 
 function SignupPage() {
     const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ function SignupPage() {
     };
 
     return (
-        <div>
+        <div className="signup-container">
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <input

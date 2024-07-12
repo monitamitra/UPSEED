@@ -1,0 +1,31 @@
+/* Container for user profile */
+.user-profile-container {
+    /* background-color: #ccc;*/
+       display: flex; /* Use flexbox layout */
+     }
+     
+     /* Style for profile picture */
+     .profile-picture {
+       width: 200px; /* Set the width of the profile picture */
+       height: auto; /* Maintain aspect ratio */
+     }
+     
+     /* Style for user information */
+     .user-info {
+       margin-left: 30px; /* Add margin to separate from profile picture */
+       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-weight: 90px;
+       letter-spacing: 0.1px;
+     }
+   
+   .user-info h1{
+       font-weight: 200px;
+       font-family:Arial, Helvetica, sans-serif;
+     }
+   
+     /* Style for CreatePostForm container */
+   .create-post-container {
+       margin-top: 40px; /* Adjust as needed to create space between profile info and form */
+       margin-right: 30px;
+       width: calc(100% - 240px); 
+     }

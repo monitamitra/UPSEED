@@ -1,0 +1,40 @@
+
+.signup-container {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    margin-top: 20vh;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .signup-container h2 {
+    margin-bottom: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #a4ac86;
+  }
+  
+  .signup-container input {
+    width: 80%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .signup-container button {
+    width: 80%;
+    padding: 10px;
+    background-color: #a4ac86;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signup-container button:hover {
+    background-color: #a4ac86;
+  }
+  

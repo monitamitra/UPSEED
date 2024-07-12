@@ -1,3 +1,4 @@
+/* Navbar.jsx */
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom if you're using React Router
 import img1 from './images/upSeedLogo.png';
@@ -28,10 +29,11 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-          <Link to="/login" className="nav-link">
+          <Link to="/signup" className="nav-link">
             SIGNUP
           </Link>
         </li>
+
       </ul>
     </nav>
   );
